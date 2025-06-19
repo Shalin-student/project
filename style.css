@@ -11,30 +11,85 @@ body {
 
 nav {
     font-family: "Varela Round", sans-serif;
-
+    background: linear-gradient(90deg, #29353b 0%, #1db954 100%);
+    box-shadow: 0 2px 12px rgba(30,185,84,0.10);
+    border-bottom: 2px solid grey;
 }
-nav ul{
+
+nav ul {
     display: flex;
     height: 90px;
-    background-color: black;
+    background: transparent;
     list-style-type: none;
     color: white;
     align-items: center;
+    margin: 0;
+    padding: 0 24px;
+}
 
+nav ul li {
+    padding: 0 18px;
+    position: relative;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
 }
-nav ul li{
-    padding: 0 12px;
+
+nav ul li .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+    z-index: 1;
 }
-.brand img{
+
+nav ul li .nav-link:hover,
+nav ul li .nav-link.active {
+    color: #1db954;
+    background: rgba(255,255,255,0.08);
+}
+
+nav ul li .nav-link.active::after,
+nav ul li .nav-link:hover::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    height: 2.5px;
+    background: #1db954;
+    border-radius: 2px;
+    margin-top: 3px;
+    transition: width 0.3s;
+}
+
+nav ul li .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2.5px;
+    background: #1db954;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-top: 3px;
+    transition: width 0.3s;
+}
+
+.brand img {
     width: 44px;
     padding: 0 8px;
-
 }
+
 .brand {
     display: flex;
     align-items: center;
     font-weight: bolder;
     font-size: 1.3rem;
+    letter-spacing: 1px;
 }
 .container{
     min-height: 72vh;
@@ -60,21 +115,34 @@ nav ul li{
 .songItem{
     height: 50px;
     display: flex;
-    background-color: white;
-    color: black;
+    background: rgba(40, 40, 40, 0.95); 
+    color: #fff;
     margin: 12px 0;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    border-radius: 34px;
-
-
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    padding: 0 18px;
+    transition: background 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+.songItem:hover {
+    background: rgba(60, 60, 60, 1);
+}
+.songItem.active {
+    background: linear-gradient(90deg, #1db954 0%, #191414 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(30,185,84,0.18);
+    border: 2px solid #1db954;
+    transition: background 0.2s, box-shadow 0.2s, border 0.2s;
 }
 .songItem img{
     width: 43px;
-    margin: 0 23px;
-    border-radius: 34px;
-
-
+    margin: 0 18px 0 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
     
 }
 .timestamp{
